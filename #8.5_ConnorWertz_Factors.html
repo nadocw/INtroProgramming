@@ -1,0 +1,70 @@
+<!-- #8, Connor Wertz-->
+<!-- https://i.imgur.com/cKcMzui.png = Click here to see my logic worked out in Microsoft paint, where user input = 10 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>#8 Wertz</title>
+    <script>
+        
+// Check all prime factors of user input
+function checkNums(){
+
+    // Get value from the text field
+    var num = document.getElementById("textField").value;
+
+    // Show user their input as an h1 heading
+    document.getElementById("userNum").innerHTML = "Your number is: " + num;
+
+    // Create blank array and our counting integer
+    // i will slowly iterate upwards, which causes checkNums to eventually end when: i == user's input
+    var i = 2;
+    var factors = [];
+
+    while ( 2 < num ){
+        if (num % i == 0){
+            factors.push(" " + i);
+            num = num / i;
+        } else {
+            // 1 is added to i until num%i != 0
+            i++;
+        }
+    }
+    // Reveal my mediocre .gif with user click
+    document.getElementById("guanYu").style.display = "inline";
+
+    // Show user their input's prime factors
+    document.getElementById("userPrimeFactors").innerHTML = "It's prime factors are: <b>" + factors + "</b>";
+    return factors;
+}
+
+    </script>
+</head>
+
+<!-- It hurt my eyes staring at the white screen so I made it grey -->
+<body style="background-color:rgb(34, 34, 34);">
+    <h1 style="color:white;">What are the prime factors of your number? Let's find out!:</h1>
+    
+    <!-- This is the box where you can enter text -->
+    <input id="textField" placeholder="Number">
+    <br>
+    <br>
+    <!-- This is the button the user clicks on, which runs checkNums -->
+    <button onclick="checkNums()"; id = "button1" >Go!</button>
+
+    <!-- <p id="userNum" style="color:white;"></p> -->
+
+    <h1 id = "userNum" style="color:white;"></h1>
+    <p id="userPrimeFactors" style="color:white;"></p>
+    <!-- This is a random doodle I made, hosted on imgur-->
+    <!-- Image is hidden by default, but it gets shown when button is clicked -->
+    <a href="https://imgur.com/TY7mVXl"><img src="https://i.imgur.com/TY7mVXl.gif" title="he will protecc u 我爱关羽" id = "guanYu" style="display: none;" /></a>
+
+<script>
+
+// No scripts in body, except for what the button does
+
+</script>
+</body>
+
+</html>
